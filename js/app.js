@@ -6,7 +6,7 @@ import { EffectComposer } from '/jsm/postprocessing/EffectComposer.js';
 import { RenderPass } from '/jsm/postprocessing/RenderPass.js';
 import { ShaderPass } from '/examples/jsm/postprocessing/ShaderPass.js';
 import { SepiaShader } from '/shaders/SepiaShader.js';
-import { GlitchPass } from '/examples/jsm/postprocessing/GlitchPass.js';
+import { BloomPass } from '/examples/jsm/postprocessing/BloomPass.js';
 
 ///// global
 var container;
@@ -17,7 +17,7 @@ var controls;
 var mesh;
 var planeMesh;
 var meshes = [];
-const SPACETXTURE = 'spacebg.jpg';
+const SPACETXTURE = 'textures/spacebg.jpg';
 var raycaster;
 var mouse;
 var composer;
@@ -54,7 +54,7 @@ function ApplyGlitchEffect()
   var pass1 = new ShaderPass(SepiaShader);
   composer.addPass(pass1);
   
-  var pass2 = new GlitchPass(0);
+  var pass2 = new BloomPass(0);
   composer.addPass(pass2);
   pass2.renderToScreen = true;
 }
